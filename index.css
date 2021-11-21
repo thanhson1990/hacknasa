@@ -1,0 +1,35 @@
+#bd,
+#clk {
+    margin: 20px;
+    width: max-content;
+}
+
+#pd {
+    text-align: center;
+    height: 200px;
+}
+
+#mes>p {
+    width: max-content;
+    height: 20px;
+    font-size: bold;
+    font-style: italic;
+    color: red;
+}
+
+#bd {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bold;
+    font-style: oblique;
+}
+
+.progress {
+    height: 40px;
+    width: 70%;
+    border: 1px solid blue;
+    margin-bottom: 30px;
+}
+
+.progress-bar {
+    font-size: 20px;
+}

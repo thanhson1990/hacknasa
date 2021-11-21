@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+                <p class="bg-info" id="bd">Hack App NASA .</p>
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg-12">
+                <button id="clk" class="btn btn-primary">Click To Hack</button>
+                <div class="progress">
+                    <div id="pb" class="progress-bar " role="progressbar" aria-valuenow="" aria-valuemin="0" aria-valuemax="100">
+                        <span class="sr-only"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg-12">
+                <div id="mes">
+                    <p id="connect"></p>
+                    <p id="phase_1"></p>
+                    <p id="phase_2"></p>
+                    <p id="phase_3"></p>
+                    <p id="almost"></p>
+                    <p id="done"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <br>
+
+
+
+    <script>
+        $(document).ready(function() {
+            var width = 0;
+
+            function showMes(percent) {
+
+                if (percent < 30) {
+                    var text = "Connecting ...";
+                    $("#connect").text(text);
+
+                } else if (percent < 50) {
+
+                    var text = "Connected and Hacking phase 1 ...";
+                    $("#phase_1").text(text);
+                } else if (percent < 70) {
+
+                    var text = "Hacking phase 2 ...";
+                    $("#phase_2").text(text);
+                } else if (percent < 80) {
+
+                    var text = " Hacking phase 3 ...";
+                    $("#phase_3").text(text);
+                } else if (percent < 90) {
+
+                    var text = "Almost done ...";
+                    $("#almost").text(text);
+                } else if (percent == 100) {
+
+                    var text = "Hacked NASA. Congratulations !!!";
+                    $("#done").text(text);
+                }
+
+
+            }
+            $("#clk").click(function() {
+                var bar = $("#pb");
+
+                // if (width >= 0 && width < 100) {
+
+                setInterval(function() {
+                    var rd = Math.floor(Math.random() * 11);
+                    var w = "";
+                    width = width + rd;
+                    if (width > 100) {
+                        w = 100 + "%";
+                        width = 100;
+                        bar.css("width", w);
+                        bar.text(width + "% Completed");
+                        showMes(width);
+                    } else {
+                        w = width + "%";
+                        bar.css("width", w);
+                        bar.text(width + "% Completed");
+                        showMes(width);
+                    }
+
+                }, 1000);
+                // }
+            });
+
+
+        });
+    </script>
+</body>
+
+</html>
