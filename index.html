@@ -20,6 +20,7 @@
             </div>
             <div class="col-sm-12 col-md-12 col-lg-12">
                 <button id="clk" class="btn btn-primary">Click To Hack</button>
+                <button id="stop" class="btn btn-primary">Click To Stop</button>
                 <div class="progress">
                     <div id="pb" class="progress-bar " role="progressbar" aria-valuenow="" aria-valuemin="0" aria-valuemax="100">
                         <span class="sr-only"></span>
@@ -38,15 +39,9 @@
             </div>
         </div>
     </div>
-
-
     <br>
-
-
-
     <script>
         $(document).ready(function() {
-            var width = 0;
 
             function showMes(percent) {
 
@@ -78,32 +73,42 @@
 
 
             }
+
+            function clearMes() {
+                $("#mes").children().text("");
+            }
+            var flag = true;
+            var cl = null;
+            var bar = $("#pb");
             $("#clk").click(function() {
-                var bar = $("#pb");
+                var width = 0;
 
-                // if (width >= 0 && width < 100) {
-
-                setInterval(function() {
+                cl = setInterval(function() {
                     var rd = Math.floor(Math.random() * 11);
-                    var w = "";
-                    width = width + rd;
+                    // var w = "";
+                    width += rd;
+                    console.log(width);
                     if (width > 100) {
-                        w = 100 + "%";
                         width = 100;
-                        bar.css("width", w);
+                        bar.css("width", width + "%");
                         bar.text(width + "% Completed");
                         showMes(width);
                     } else {
-                        w = width + "%";
-                        bar.css("width", w);
+                        //  w = width + "%";
+                        bar.css("width", width + "%");
                         bar.text(width + "% Completed");
                         showMes(width);
                     }
 
                 }, 1000);
-                // }
-            });
 
+            });
+            $("#stop").click(function() {
+                clearInterval(cl);
+                bar.css("width", 0 + "%");
+                bar.text("");
+                clearMes();
+            });
 
         });
     </script>
