@@ -33,3 +33,9 @@
 .progress-bar {
     font-size: 20px;
 }
+
+.warning {
+    font-weight: bold;
+    color: red;
+    font-size: 50px;
+}
